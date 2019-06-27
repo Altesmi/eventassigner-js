@@ -1,0 +1,25 @@
+{
+  "name": "eventassigner-js",
+  "version": "0.0.1",
+  "description": "A NPM package to assign groups / persons to events based on their preference",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altesmi/eventassigner-js.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "optimization",
+    "Event assignment"
+  ],
+  "author": "Olli-Pekka Tikkanen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Altesmi/eventassigner-js/issues"
+  },
+  "homepage": "https://github.com/Altesmi/eventassigner-js#readme"
+}

@@ -64,3 +64,6 @@ typings/
 .idea/
 .vscode/
 lib/
+
+#npmignoreswap
+..npmignore.swp
