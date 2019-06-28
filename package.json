@@ -4,8 +4,8 @@
   "description": "A NPM package to assign groups / persons to events based on their preference",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build":  "npm run lint && babel ./src -d ./lib",
+    "test": "mocha --require babel-core/register",
+    "build": "npm run lint && babel ./src -d ./lib",
     "lint": "eslint ./src"
   },
   "repository": {
@@ -27,8 +27,10 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.18.0"
+    "eslint-plugin-import": "^2.18.0",
+    "mocha": "^6.1.4"
   }
 }
