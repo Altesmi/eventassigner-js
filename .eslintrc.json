@@ -16,5 +16,14 @@
         "sourceType": "module"
     },
     "rules": {
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-console": 0,
+        "react/prop-types": 0,
+        "eqeqeq": "error",
+        "no-trailing-spaces": "error",
+        "no-else-return": 0
     }
 }
