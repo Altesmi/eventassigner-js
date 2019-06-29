@@ -237,6 +237,24 @@ const inputWithWrongPrefId = {
   },
 }
 
+const correctAssignment = [{
+  id: 1,
+  assignment: 1,
+},
+{
+  id: 2,
+  assignment: 2,
+}]
+
+const wrongAssignment = [{
+  id: 1,
+  assignment: 1,
+},
+{
+  id: 2,
+  assignment: 1,
+}]
+
 module.exports = {
   inputWithDuplicateIdInEvents,
   inputWithNoMaxInEvents,
@@ -249,4 +267,6 @@ module.exports = {
   inputWithoutGroups,
   inputWithWrongPref,
   inputWithWrongPrefId,
+  correctAssignment,
+  wrongAssignment,
 }
