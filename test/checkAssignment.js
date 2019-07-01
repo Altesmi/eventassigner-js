@@ -11,7 +11,7 @@ describe('With correct assignment', () => {
   })
 })
 
-describe.only('With wrong assignment', () => {
+describe('With wrong assignment', () => {
   const assignmentCheck = checkAssignment(
     wrongAssignment, correctInput.events, correctInput.groups,
   )

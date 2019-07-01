@@ -50,7 +50,6 @@ const checkInput = (input) => {
   }
 
   // Check that  updateL exists
-
   if ((typeof (input.updateL)) !== 'function') {
     return 0
   }

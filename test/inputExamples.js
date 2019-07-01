@@ -87,11 +87,13 @@ const correctInput = {
     id: 1,
     min: 0,
     max: 2,
+    groups: [1],
   },
   {
     id: 2,
     min: 1,
     max: 6,
+    groups: [2],
   }],
   groups: [{
     id: 1,
