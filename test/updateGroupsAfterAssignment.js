@@ -50,7 +50,7 @@ describe.only('#updateGroupsAfterAssignemnt', () => {
   describe('With assignment to already happening event', () => {
     const runMode = 'real'
     const res = updateGroupsAfterAssignment(
-      eventWithGroups, phantomEvents, groups, V, deficit, assignment, groups[0], 12, runMode,
+      eventWithGroups, phantomEvents, groups, assignment, groups[0], 12, runMode,
     )
 
     it('should remove group from all other events', () => {
@@ -79,7 +79,10 @@ describe.only('#updateGroupsAfterAssignemnt', () => {
       expect(eventWhereShouldNotBe13InGroups).not.to.include(13)
       const anotherEvenetWhereShouldNotBe13InGroups = res.returnEvents.filter(e => e.id === 1)
       expect(anotherEvenetWhereShouldNotBe13InGroups).not.to.include(13)
-      console.log(res.returnPhantomEvents)
+    })
+    it('should set id 100 to be an unassigned group', () => {
+      const unAssignedGroup = res.returnUnassignedGroups.filter(g => g.id === 100)[0]
+      expect(unAssignedGroup.id).to.equal(100)
     })
   })
 })

@@ -39,6 +39,11 @@ const groups = [
     size: 1,
     pref: [53],
   },
+  {
+    id: 100,
+    size: 1,
+    pref: [53],
+  },
 ]
 
 const eventWithGroups = [{

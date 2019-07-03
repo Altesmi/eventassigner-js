@@ -4,8 +4,6 @@ function updateGroupsAfterAssignment(
   events,
   phantomEvents,
   groups,
-  unassignedGroups,
-  deficit,
   assignment,
   assignedGroup,
   assignedEventId,
@@ -20,9 +18,9 @@ function updateGroupsAfterAssignment(
   const returnEvents = events
   const returnPhantomEvents = phantomEvents
   const returnGroups = groups
-  /* const returnUnassignedGroups = unassignedGroups */
   let returnDeficit = 0
   const returnAssignment = assignment
+  const returnUnassignedGroups = []
 
   if (runmode === 'phantomToReal') {
     /* This group was a phantom event but now has enough groups to be a real event
@@ -121,6 +119,20 @@ function updateGroupsAfterAssignment(
   }
 
   /* Check that every group not in any event is in unassigned groups */
+  for (let groupInd = 0;
+    groupInd < returnGroups.length;
+    groupInd += 1) {
+    let groupIsInEvents = 0
+    for (let eventInd = 0; eventInd < returnEvents.length; eventInd += 1) {
+      if (returnEvents[eventInd].groups.includes(returnGroups[groupInd].id)) {
+        groupIsInEvents = 1
+      }
+    }
+    if (!groupIsInEvents) {
+      returnUnassignedGroups.push(returnGroups[groupInd])
+    }
+  }
+
 
   /* Check that deficit equals sum ( event min - numPlayers in event)
   over the set of phantom events */
@@ -138,6 +150,7 @@ function updateGroupsAfterAssignment(
     returnGroups,
     returnDeficit,
     returnAssignment,
+    returnUnassignedGroups,
   }
 }
 
