@@ -19,6 +19,26 @@ const groups = [
     size: 2,
     pref: [3, 4, 5],
   },
+  {
+    id: 13,
+    size: 1,
+    pref: [551, 1, 53],
+  },
+  {
+    id: 14,
+    size: 1,
+    pref: [551, 1],
+  },
+  {
+    id: 15,
+    size: 1,
+    pref: [551],
+  },
+  {
+    id: 44,
+    size: 1,
+    pref: [53],
+  },
 ]
 
 const eventWithGroups = [{
@@ -37,7 +57,7 @@ const eventWithGroups = [{
   id: 4,
   min: 1,
   max: 5,
-  groups: [],
+  groups: [1124],
 },
 {
   id: 5,
@@ -53,9 +73,9 @@ const eventWithGroups = [{
 },
 {
   id: 22,
-  min: 1,
+  min: 4,
   max: 5,
-  groups: [],
+  groups: [53],
 },
 {
   id: 25,
@@ -65,15 +85,54 @@ const eventWithGroups = [{
 },
 {
   id: 53,
-  min: 1,
+  min: 2,
   max: 5,
-  groups: [],
+  groups: [13, 44],
 },
 {
   id: 1,
   min: 1,
   max: 5,
-  groups: [],
+  groups: [13, 14],
+},
+{
+  id: 551,
+  min: 3,
+  max: 5,
+  groups: [13, 14, 15],
 }]
 
-module.exports = { groups, eventWithGroups }
+const assignment = [{
+  id: 1124,
+  assignment: 12,
+},
+{
+  id: 53,
+  assignment: -1,
+},
+{
+  id: 332,
+  assignment: -1,
+},
+{
+  id: 33,
+  assignment: -1,
+},
+{
+  id: 13,
+  assignment: 551,
+},
+{
+  id: 14,
+  assignment: -1,
+},
+{
+  id: 15,
+  assignment: -1,
+},
+{
+  id: 44,
+  assignment: -1,
+}]
+
+module.exports = { groups, eventWithGroups, assignment }
