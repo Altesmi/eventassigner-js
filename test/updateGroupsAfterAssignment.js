@@ -35,22 +35,15 @@ phantomEvents.includesEvent = (event) => {
     return 0
   }
 }
+const unassignedGroups = groups.slice()
 
-const V = [
-  {
-    id: 100,
-    size: 2,
-    pref: [3, 4, 22],
-  },
-]
-
-const deficit = 5
-
-describe.only('#updateGroupsAfterAssignemnt', () => {
+unassignedGroups.countPlayers = () => unassignedGroups
+  .reduce((total, group) => total + group.size, 0)
+describe('#updateGroupsAfterAssignemnt', () => {
   describe('With assignment to already happening event', () => {
     const runMode = 'real'
     const res = updateGroupsAfterAssignment(
-      eventWithGroups, phantomEvents, groups, assignment, groups[0], 12, runMode,
+      eventWithGroups, phantomEvents, groups, unassignedGroups, assignment, groups[0], 12, runMode,
     )
 
     it('should remove group from all other events', () => {
@@ -71,7 +64,7 @@ describe.only('#updateGroupsAfterAssignemnt', () => {
   describe('With assignment to phantom event that turns to real event', () => {
     const runMode = 'phantomToReal'
     const res = updateGroupsAfterAssignment(
-      eventWithGroups, phantomEvents, groups, V, deficit, assignment, groups[4], 551, runMode,
+      eventWithGroups, phantomEvents, groups, unassignedGroups, assignment, groups[4], 551, runMode,
     )
 
     it('should remove assigned groups from all other evets', () => {
@@ -79,6 +72,7 @@ describe.only('#updateGroupsAfterAssignemnt', () => {
       expect(eventWhereShouldNotBe13InGroups).not.to.include(13)
       const anotherEvenetWhereShouldNotBe13InGroups = res.returnEvents.filter(e => e.id === 1)
       expect(anotherEvenetWhereShouldNotBe13InGroups).not.to.include(13)
+      expect(anotherEvenetWhereShouldNotBe13InGroups).not.to.include(14)
     })
     it('should set id 100 to be an unassigned group', () => {
       const unAssignedGroup = res.returnUnassignedGroups.filter(g => g.id === 100)[0]

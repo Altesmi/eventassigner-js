@@ -4,6 +4,7 @@ function updateGroupsAfterAssignment(
   events,
   phantomEvents,
   groups,
+  unassignedGroups,
   assignment,
   assignedGroup,
   assignedEventId,
@@ -20,8 +21,7 @@ function updateGroupsAfterAssignment(
   const returnGroups = groups
   let returnDeficit = 0
   const returnAssignment = assignment
-  const returnUnassignedGroups = []
-
+  const returnUnassignedGroups = unassignedGroups
   if (runmode === 'phantomToReal') {
     /* This group was a phantom event but now has enough groups to be a real event
      Remove all the groups in the event from all other events they are set */
@@ -87,7 +87,6 @@ function updateGroupsAfterAssignment(
           returnEvents,
           returnEvents[eventInd].id,
         )
-        // console.log(assignedGroup.id)
         returnEvents[eventInd].groups = returnEvents[eventInd].groups
           .filter(group => group !== assignedGroup.id)
         const numPlayersAfter = countPlayersInEvent(
@@ -136,14 +135,14 @@ function updateGroupsAfterAssignment(
 
   /* Check that deficit equals sum ( event min - numPlayers in event)
   over the set of phantom events */
+  if (returnPhantomEvents.length > 0) {
+    returnPhantomEvents.forEach((pevent) => {
+      // find the players attending to this event
+      const numPlayers = countPlayersInEvent(returnGroups, returnEvents, pevent.id)
 
-  returnPhantomEvents.forEach((pevent) => {
-    // find the players attending to this event
-    const numPlayers = countPlayersInEvent(returnGroups, returnEvents, pevent.id)
-
-    returnDeficit += (pevent.min - numPlayers)
-  })
-
+      returnDeficit += (pevent.min - numPlayers)
+    })
+  }
   return {
     returnEvents,
     returnPhantomEvents,

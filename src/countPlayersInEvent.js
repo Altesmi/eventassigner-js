@@ -1,6 +1,5 @@
 function countPlayersInEvent(groups, events, eventId) {
   const eInd = events.findIndex(e => e.id === eventId)
-
   // return 0 if there are no groups in the event
   if (events[eInd].groups.length === 0) {
     return 0
