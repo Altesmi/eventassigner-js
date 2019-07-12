@@ -1,6 +1,9 @@
 import { checkInput } from './checkInput'
+// eslint-disable-next-line import/named
 import { checkAssignment } from './checkAssignment'
+// eslint-disable-next-line import/named
 import { padgOpt } from './padg'
+
 function eventAssignment(input) {
   // check input
 
