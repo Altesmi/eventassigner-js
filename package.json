@@ -1,8 +1,8 @@
 {
   "name": "eventassigner-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A NPM package to assign groups / persons to events based on their preference",
-  "main": "build/eventAssignment.js",
+  "main": "lib/eventAssignment.js",
   "scripts": {
     "test": "mocha --require babel-core/register",
     "build": "npm run lint && babel ./src -d ./lib",
