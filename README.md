@@ -1,5 +1,11 @@
 # eventassigner-js
-An NPM package to assign groups / persons to events based on their preference
+An NPM package to assign groups / persons to events based on their preference. 
+
+Uses modified algorithm from [Li et al. (2014)](https://www.cs.ucsb.edu/~klee/papers/On_Social_Event_Organization_papers.pdf)
+
+The algorithm is modified to handle groups of varying size. 
+
+An observable notebook where the new algorithm is tested against real data is located [here](https://observablehq.com/@altesmi/event-assignment-with-real-data)
 
 # How to use version 0.1.*
 
