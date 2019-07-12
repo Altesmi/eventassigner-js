@@ -1,7 +1,7 @@
 # eventassigner-js
 An NPM package to assign groups / persons to events based on their preference
 
-# how to use version 0.1.*
+# How to use version 0.1.*
 
 ## Install the package
 
@@ -9,13 +9,13 @@ An NPM package to assign groups / persons to events based on their preference
 npm install --save eventassigner-js
 ```
 
-## require the package 
+## Require the package 
 
 ```javascript
 const ea = require('eventassigner-js')
 ```
 
-## define event assignment problem
+## Define event assignment problem
 
 function ea.eventAssignment(input) takes an object which has to following fields
 
@@ -57,7 +57,7 @@ updateL()-function must return a list object. Minimum working function is
 ```javascript
 const updateL = input => input.list
 ```
-## call the eventAssignment function
+## Call the eventAssignment function
 
 ```javascript
 const assignment = ea.eventAssignment(input)
@@ -81,7 +81,7 @@ The assignment can be wrong if
 1. There is less than minimum number of players assigned to any event.
 2. There is more than max number of players assigned to any event.
 
-# working example
+# Working example
 
 ```javascript
 const ea = require('eventassigner-js');
