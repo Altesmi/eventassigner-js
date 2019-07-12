@@ -45,7 +45,7 @@ function checkAssignment(assignment, events, groups) {
       const eInd = events.findIndex(e => e.id === gPref)
       const numPlayers = countPlayersInEvent(groups, events, gPref)
       if (numPlayers + g.size < events[eInd].max && g.size >= events[eInd].min) {
-        valid = 0
+        valid = 1
         flag = flag.concat(`Group ${g.id} could fit to pref ${gPref}`)
       }
     })
