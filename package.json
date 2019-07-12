@@ -1,6 +1,6 @@
 {
   "name": "eventassigner-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A NPM package to assign groups / persons to events based on their preference",
   "main": "lib/eventAssignment.js",
   "scripts": {
