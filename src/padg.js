@@ -3,12 +3,6 @@ import { countPlayersInEvent } from './countPlayersInEvent'
 import { updateGroupsAfterAssignment } from './updateGroupsAfterAssignment'
 
 function padgOpt(input) {
-  /* let LL = JSON.parse(JSON.stringify(input.L))
-  let evn = JSON.parse(JSON.stringify(evnt))
-  let M = grp.map(e => {
-    return {name: e.name,assignment: -1}
-  }) */
-
   let {
     groups,
     events,
@@ -131,7 +125,7 @@ function padgOpt(input) {
 
 
       unassignedGroups.removeGroup(listElement.id)
-      if (countPlayersInEvent(groups, events, listElement.id) >= events[eventInd].min
+      if (countPlayersInEvent(groups, events, listElement.event) >= events[eventInd].min
       && phantomEvents.includesEvent(events[eventInd]) === 0) {
         // this event is not a phantom event, set M(u) to a
         assignment[assignmentInd].assignment = listElement.event

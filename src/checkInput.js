@@ -26,10 +26,10 @@ const checkInput = (input) => {
   // Check that groups have unique ids
   const groupIds = []
   for (let groupId = 0; groupId < input.groups.length; groupId += 1) {
-    if (groupIds.includes(input.events[groupId].id)) {
+    if (groupIds.includes(input.groups[groupId].id)) {
       return 0
     }
-    groupIds.push(input.events[groupId].id)
+    groupIds.push(input.groups[groupId].id)
   }
 
   // Check that every group has a preferences and size
