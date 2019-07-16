@@ -60,9 +60,9 @@ is not assigned to the event specified by that entry. The function can be used t
     ![equation](https://latex.codecogs.com/gif.latex?%5Csum_%7Ba%20%5Cin%20P%7D%20%5Cgamma_a%20-%20%7CE_a%7C%2C)
 
     where 
-    $P$: events that have at least one attendee but less than the minimum amount of that event
-    $\gamma_a$: minimum amount of attendees needed for event a to happen
-    $|E_a|$: number of attendees in event a
+    * P: events that have at least one attendee but less than the minimum amount of that event
+    * ![equation](https://latex.codecogs.com/gif.latex?%5Cgamma_a): minimum amount of attendees needed for event a to happen
+    * |E_a|: number of attendees in event a
     
   
 6. list: current 'list' array
