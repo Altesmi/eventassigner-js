@@ -57,7 +57,7 @@ is not assigned to the event specified by that entry. The function can be used t
 4. unassignedGroups: groups that are not assigned. Has the same structure as 'groups' array
 5. deficit: total number of attendees needed for those events to happen that have at least one attendee but less than the minimum amount of attendees needed. Defined as 
 
-    $\sum_{a \in P} \gamma_a - |E_a|,$
+    ![equation](https://latex.codecogs.com/gif.latex?%5Csum_%7Ba%20%5Cin%20P%7D%20%5Cgamma_a%20-%20%7CE_a%7C%2C)
     where 
     $P$: events that have at least one attendee but less than the minimum amount of that event
     $\gamma_a$: minimum amount of attendees needed for event a to happen
