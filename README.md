@@ -133,6 +133,7 @@ const events = [{
   id: 3,
   min: 1,
   max: 3,
+  groups: [],
 },
 ]
 
