@@ -65,12 +65,6 @@ function padgOpt(input) {
   list = list.filter(ele => ele.gain > 0)
 
   while (list.length > 0) {
-    /*  console.log('assignment')
-    console.log(assignment.filter(ele => ele.assignment === 'p1880').length)
-    console.log('countplayers')
-    console.log(countPlayersInEvent(groups, events, 'p1880'))
-    console.log('is phantom event')
-    console.log(phantomEvents.includesEvent({ id: 'p1880' })) */
     const listElement = list.pop()
     const eventInd = events.findIndex(e => e.id === listElement.event)
     const groupInd = groups.findIndex(g => g.id === listElement.id)
@@ -160,7 +154,13 @@ function padgOpt(input) {
       if (assignment[assignmentInd].assignment === -1) {
         list = updateL(
           {
-            groups, events, assignment, unassignedGroups, deficit, list,
+            groups,
+            events,
+            assignment,
+            unassignedGroups,
+            deficit,
+            list,
+            groupId: listElement.id,
           },
         )
       }

@@ -55,7 +55,8 @@ is not assigned to the event specified by that entry. The function can be used t
     *  id: group id
     * assignment: the events id where this group is assigned. -1 means no assignment
 4. unassignedGroups: groups that are not assigned. Has the same structure as 'groups' array
-5. deficit: total number of attendees needed for those events to happen that have at least one attendee but less than the minimum amount of attendees needed. Defined as 
+5. deficit: total number of attendees needed for those events to happen that have at least one attendee but less than the minimum amount of attendees needed. Defined as
+6. groupId: the id of the group that was not assigned
 
     ![equation](https://latex.codecogs.com/gif.latex?%5Csum_%7Ba%20%5Cin%20P%7D%20%5Cgamma_a%20-%20%7CE_a%7C%2C)
 
