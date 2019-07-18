@@ -14,7 +14,7 @@ function eventAssignment(input) {
   }
 
   const assignment = padgOpt(input)
-
+  // console.log(assignment)
   const assignmentCheck = checkAssignment(assignment, input.events, input.groups)
 
   if (assignmentCheck.result === 1) {

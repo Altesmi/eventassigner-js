@@ -22,8 +22,9 @@ function updateGroupsAfterAssignment(
   let returnDeficit = 0
   const returnAssignment = assignment
   const returnUnassignedGroups = unassignedGroups
+
   if (runmode === 'phantomToReal') {
-    /* This group was a phantom event but now has enough groups to be a real event
+    /* This event was a phantom event but now has enough groups to be a real event
      Remove all the groups in the event from all other events they are set */
     returnPhantomEvents.removeEntry(assignedEventId)
     const assignedEventInd = returnEvents.findIndex(event => event.id === assignedEventId)
@@ -33,7 +34,6 @@ function updateGroupsAfterAssignment(
       const assignmentIndTemp = returnAssignment.findIndex(a => a.id === group)
       returnAssignment[assignmentIndTemp].assignment = assignedEventId
     })
-
     // remove every assigned group from other events they are set to
     for (let groupInd = 0;
       groupInd < returnEvents[assignedEventInd].groups.length;
@@ -58,7 +58,7 @@ function updateGroupsAfterAssignment(
             && numPlayersAfter < returnEvents[eventInd].min
             && numPlayersAfter > 0) {
             if (!returnPhantomEvents.includesEvent(returnEvents[eventInd])) {
-              phantomEvents.createEntry({
+              returnPhantomEvents.createEntry({
                 id: returnEvents[eventInd].id,
                 min: returnEvents[eventInd].min,
                 max: returnEvents[eventInd].max,
@@ -97,14 +97,16 @@ function updateGroupsAfterAssignment(
 
         // Check did the event fall into a phantom event due to the group being removed
         if (numPlayersAfter < numPlayersBefore
-          && numPlayersAfter < returnEvents[eventInd].min
-          && numPlayersAfter > 0) {
-          if (!returnPhantomEvents.includesEvent(returnEvents[eventInd].id)) {
+          && numPlayersAfter < returnEvents[eventInd].min) {
+          if (numPlayersAfter > 0 && !returnPhantomEvents.includesEvent(returnEvents[eventInd])) {
             returnPhantomEvents.createEntry({
               id: returnEvents[eventInd].id,
               min: returnEvents[eventInd].min,
               max: returnEvents[eventInd].max,
             })
+          }
+          if (numPlayersAfter === 0 && returnPhantomEvents.includesEvent(returnEvents[eventInd])) {
+            returnPhantomEvents.removeEntry(returnEvents[eventInd].id)
           }
           // if any group had this event as an assignment remove it
           for (let assignmentInd = 0; assignmentInd < returnAssignment.length; assignmentInd += 1) {

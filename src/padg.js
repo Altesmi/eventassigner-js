@@ -33,7 +33,7 @@ function padgOpt(input) {
   }
 
   phantomEvents.removeEntry = (eventid) => {
-    const ind = phantomEvents.findIndex(ele => ele.name === eventid)
+    const ind = phantomEvents.findIndex(ele => ele.id === eventid)
     phantomEvents.splice(ind, 1)
   }
 
@@ -65,6 +65,12 @@ function padgOpt(input) {
   list = list.filter(ele => ele.gain > 0)
 
   while (list.length > 0) {
+    /*  console.log('assignment')
+    console.log(assignment.filter(ele => ele.assignment === 'p1880').length)
+    console.log('countplayers')
+    console.log(countPlayersInEvent(groups, events, 'p1880'))
+    console.log('is phantom event')
+    console.log(phantomEvents.includesEvent({ id: 'p1880' })) */
     const listElement = list.pop()
     const eventInd = events.findIndex(e => e.id === listElement.event)
     const groupInd = groups.findIndex(g => g.id === listElement.id)
@@ -118,11 +124,10 @@ function padgOpt(input) {
           continue
         }
       } else if (phantomEvents.includesEvent(events[eventInd]) === 1) {
-        // S has players and is happening anyway
+        // event has players, decrease deficit
         deficit -= listElement.size
       }
       events[eventInd].groups.push(listElement.id)
-
 
       unassignedGroups.removeGroup(listElement.id)
       if (countPlayersInEvent(groups, events, listElement.event) >= events[eventInd].min
@@ -150,6 +155,7 @@ function padgOpt(input) {
         phantomEvents = updatedObjects.returnPhantomEvents
         assignment = updatedObjects.returnAssignment
       }
+
       // Update list LL if there was no assignment
       if (assignment[assignmentInd].assignment === -1) {
         list = updateL(
